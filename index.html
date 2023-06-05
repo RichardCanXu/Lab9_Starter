@@ -4,6 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "aa0de64de2af4434b0830283e14c47ae"
+    });
+    TrackJS.track('Testing TrackJS!');
+  </script>
+  <script>
+    window.addEventListener('global error', function(){
+          console.log("Global error:")
+        })
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lab 9</title>
 
@@ -102,6 +114,89 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+        errorBtns[0].addEventListener('click', () => {
+      let data = 'Console Log Message: Button Pressed';
+      console.log(data);
+    });
+
+    // Console Error
+    errorBtns[1].addEventListener('click', () => {
+      let errorMessage = 'Console error message';
+      console.error(errorMessage);
+    });
+
+    // Console Count
+    errorBtns[2].addEventListener('click', () => {
+      let count = 0;
+      console.log(`Console message: ${++count} clicks`)
+    });
+
+    // Console Warn
+    errorBtns[3].addEventListener('click', () => {
+      console.warn('Warning Message');
+    });
+
+    // Console Assert
+    errorBtns[4].addEventListener('click', () => {
+      let test = false;
+      console.assert(test, 'test is false');
+    });
+
+    // Console Clear
+    errorBtns[5].addEventListener('click', () => {
+      console.clear();
+    });
+
+    // Console Dir
+    errorBtns[6].addEventListener('click', () => {
+      console.dir(errorBtns[6]);
+    });
+
+    // Console Dirxml
+    errorBtns[7].addEventListener('click', () => {
+      console.dirxml(document.body);
+    });
+
+    // Console Group Start / Console Group End
+    errorBtns[8].addEventListener('click', () => {
+      console.group();
+    });
+
+    // Console Table
+    errorBtns[9].addEventListener('click', () => {
+      let data = [
+        { one: 'Devika', two: 22 },
+        { one: 'Neha', two: 21 },
+        { one: 'Anika', two: 45 }
+      ];
+      console.table(data);
+    });
+
+    // Console Timer Start / Console Timer End
+    let timerStarted = false;
+    errorBtns[10].addEventListener('click', () => {
+      console.time()
+    });
+
+    errorBtns[11].addEventListener('click', () => {
+      console.timeEnd();
+    });
+
+    // Console Trace
+    errorBtns[12].addEventListener('click', () => {
+      function func1() {
+        console.trace();
+      }
+      function func2() {
+        func1();
+      }
+      func2();
+    });
+
+    // Trigger a Global Error
+    errorBtns[13].addEventListener('click', () => {
+      console.log("global error");
+    });
   </script>
 </body>
 
